@@ -1,0 +1,101 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+@import "toastr";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply font-NotoSans text-[#1A1A1A] scroll-smooth;
+  }
+
+  h1 {
+    @apply font-black xl:text-[50px] text-[30px] xl:leading-[68.1px] leading-[40.86px] text-white uppercase;
+  }
+
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply text-[#181818] xl:leading-[54.48px] leading-[32.69px] xl:text-[40px] text-[24px] font-black uppercase;
+  }
+
+  button,
+  a {
+    @apply transition-all duration-300 hover:opacity-75;
+  }
+
+  input,
+  textarea {
+    @apply bg-[#FFFFFF] xl:p-5 p-2.5 ring-0 outline-none placeholder:text-[#808080] text-sm leading-[19.6px] font-medium w-full;
+    box-shadow: 0px 0px 21px 0px #ffffff66 inset;
+  }
+
+  .container-main {
+    @apply max-w-[1368px] w-full xl:px-0 px-2.5 mx-auto;
+  }
+
+  .containerConf input[type="checkbox"]:checked ~ .iconChecked {
+    @apply opacity-100;
+  }
+}
+
+@layer components {
+  .main-button {
+    @apply xl:w-[280px] w-[210px] font-medium xl:text-lg text-base xl:leading-[25.2px] leading-[22.4px] text-white bg-[#F7341F] xl:h-[60px] h-10 text-center flex justify-center items-center transition-all duration-300 hover:opacity-75;
+  }
+
+  .footer-nav-menu-link a {
+    @apply text-sm leading-[18.2px] text-white uppercase;
+  }
+
+  .contact-container {
+    @apply flex flex-col xl:gap-2.5 gap-2;
+  }
+
+  .contact-container .title {
+    @apply text-[#636363] xl:leading-[28px] leading-[22.4px] xl:text-[20px] text-base;
+  }
+
+  .contact-container .value {
+    @apply xl:text-[26px] text-[20px] xl:leading-[36.4px] leading-[28px] font-semibold;
+  }
+
+  .header-menu a {
+    @apply leading-[20.8px] text-base uppercase text-white;
+  }
+
+  .header-menu-mobile a {
+    @apply leading-[20.8px] text-base uppercase text-white font-bold;
+  }
+
+  .toggleOpenMenuMobile.active {
+    @apply !opacity-100;
+  }
+
+  #menuMobile.open {
+    @apply translate-x-0 opacity-100;
+  }
+
+  .shadow-card-product {
+    box-shadow: 0px 0px 4px 0px #00000026;
+  }
+
+  .container-text-card-product {
+    @apply flex items-end xl:pb-5 pb-2.5 xl:pl-[30px] pl-2.5;
+  }
+
+  .container-text-card-product .title {
+    @apply xl:leading-[36.4px] leading-[28px] xl:text-[26px] text-xl font-bold uppercase;
+  }
+
+  .clients-container-card {
+    @apply flex justify-center items-center;
+  }
+
+  .modal.open {
+    @apply translate-y-0 opacity-100;
+  }
+}

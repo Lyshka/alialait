@@ -1,0 +1,91 @@
+<header
+  class="absolute z-[2] xl:top-0 w-full xl:bg-[#00000066] xl:h-[70px] top-5 flex justify-center items-center"
+>
+  <div class="container-main flex justify-between items-center relative">
+    <button class="xl:hidden block opacity-0 toggleOpenMenuMobile active" id="openMenuMobile">
+      <svg
+        width="24"
+        height="16"
+        viewBox="0 0 24 16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 1C0 0.447716 0.447715 0 1 0H23C23.5523 0 24 0.447715 24 1V1.66667C24 2.21895 23.5523 2.66667 23 2.66667H1C0.447716 2.66667 0 2.21895 0 1.66667V1ZM0 7.66667C0 7.11438 0.447715 6.66667 1 6.66667H23C23.5523 6.66667 24 7.11438 24 7.66667V8.33333C24 8.88562 23.5523 9.33333 23 9.33333H1C0.447716 9.33333 0 8.88562 0 8.33333V7.66667ZM0 14.3333C0 13.781 0.447715 13.3333 1 13.3333H23C23.5523 13.3333 24 13.781 24 14.3333V15C24 15.5523 23.5523 16 23 16H1C0.447716 16 0 15.5523 0 15V14.3333Z"
+          fill="#F7341F"
+        />
+      </svg>
+    </button>
+
+    <button
+      class="xl:hidden block !opacity-0 toggleOpenMenuMobile absolute"
+      id="closeMenuMobile"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <g clip-path="url(#clip0_94_962)">
+          <path
+            d="M12 12L22 22M12 12L2 2M12 12L2 22M12 12L22 2"
+            stroke="#F7341F"
+            stroke-width="2.6"
+            stroke-linecap="round"
+          />
+        </g>
+        <defs>
+          <clipPath id="clip0_94_962">
+            <rect width="24" height="24" fill="white" />
+          </clipPath>
+        </defs>
+      </svg>
+    </button>
+
+    <nav class="header-menu xl:block hidden">
+      <ul class="flex items-center gap-20">
+        <li>
+          <a href="#about">О компании</a>
+        </li>
+
+        <li>
+          <a href="https://galad.ru/">Каталог</a>
+        </li>
+
+        <li>
+          <a href="#formBlock">Оставить заявку</a>
+        </li>
+
+        <li>
+          <a href="#contact">Контакты</a>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="flex items-center gap-[51px]">
+      <a
+        class="leading-[20.8px] xl:inline hidden text-base font-medium text-white"
+        href="mailto:lxp2014@mail.ru"
+        >lxp2014@mail.ru</a
+      >
+
+      <div class="flex flex-col gap-2 items-end">
+        <a
+          class="xl:text-[20px] text-lg xl:leading-[26px] leading-[23.4px] font-bold text-white"
+          href="tel:+375292172211"
+          >+375 (29) 217-22-11</a
+        >
+
+        <button
+          class="leading-[18.2px] xl:flex hidden text-sm font-semibold text-[#F7341F] uppercase openModalForm"
+        >
+          Заказать звонок
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+<load src="src/components/Header/MenuMobile.html" />
