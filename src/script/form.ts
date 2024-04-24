@@ -45,11 +45,19 @@ const formBlock = () => {
     try {
       const {
         data: { error, success },
-      } = await axios.post<Response>(`${window.location.origin}/form.php`, {
-        tel: telValue,
-        message: messageValue,
-        formName: "formBlock",
-      });
+      } = await axios.post<Response>(
+        `${window.location.origin}/form.php`,
+        {
+          tel: telValue,
+          message: messageValue,
+          formName: "formBlock",
+        },
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
 
       if (success) {
         (event.target as HTMLFormElement).reset();
@@ -110,11 +118,19 @@ const formModal = () => {
     try {
       const {
         data: { error, success },
-      } = await axios.post<Response>(`${window.location.origin}/form.php`, {
-        tel: telValue,
-        name: nameValue,
-        formName: "orderForm",
-      });
+      } = await axios.post<Response>(
+        `${window.location.origin}/form.php`,
+        {
+          tel: telValue,
+          name: nameValue,
+          formName: "orderForm",
+        },
+        {
+          headers: {
+            "Content-Type": "application/x-www-form-urlencoded",
+          },
+        }
+      );
 
       if (success) {
         (event.target as HTMLFormElement).reset();

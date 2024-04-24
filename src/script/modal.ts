@@ -4,7 +4,6 @@ const modalForm = () => {
     document.querySelectorAll<HTMLButtonElement>(".openModalForm");
   const closeButtonElemets =
     document.querySelectorAll<HTMLButtonElement>(".closeModal");
-
   const allModalElements = document.querySelectorAll<HTMLElement>(".modal");
 
   closeButtonElemets.forEach((closeModal) => {

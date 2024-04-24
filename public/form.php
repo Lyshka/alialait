@@ -5,7 +5,7 @@ $email = "lesha_novitskiy@mail.ru";
 // Проверяем, является ли запрос методом POST
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Проверяем значение параметра formName
-    if ($_POST['formName'] === 'formBlock') {
+    if ($_POST['formName'] == 'formBlock') {
         // Получаем значения полей tel и message из POST запроса
         $tel = $_POST['tel'];
         $message = $_POST['message'];
@@ -23,7 +23,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Возвращаем ошибку JSON ответ
             echo json_encode(['success' => false, 'error' => 'Не удалось отправить сообщение']);
         }
-    } elseif ($_POST['formName'] === 'orderForm') {
+    } elseif ($_POST['formName'] == 'orderForm') {
         // Получаем значения полей name и tel из POST запроса
         $name = $_POST['name'];
         $tel = $_POST['tel'];
