@@ -1,13 +1,15 @@
 import toastr from "toastr";
 
 import { openThanksModal } from "./modal";
+import axios from "axios";
+import { Response } from "../types/response";
 
 const formBlock = () => {
   const formBlock = document.getElementById("formBlock") as HTMLFormElement;
 
   const { openModal } = openThanksModal();
 
-  formBlock.onsubmit = (event: Event) => {
+  formBlock.onsubmit = async (event: Event) => {
     event.preventDefault();
 
     const telValue = (
@@ -34,15 +36,30 @@ const formBlock = () => {
     }
 
     if (!confValue) {
-        toastr.error(
-          "Выдолжны согласиться с Политикой обработки персональных данных!"
-        );
-        return;
-      }
+      toastr.error(
+        "Выдолжны согласиться с Политикой обработки персональных данных!"
+      );
+      return;
+    }
 
-    (event.target as HTMLFormElement).reset();
-    openModal();
-    console.log(telValue, messageValue);
+    try {
+      const {
+        data: { error, success },
+      } = await axios.post<Response>(`${window.location.origin}/form.php`, {
+        tel: telValue,
+        message: messageValue,
+        formName: "formBlock",
+      });
+
+      if (success) {
+        (event.target as HTMLFormElement).reset();
+        openModal();
+      } else {
+        toastr.error(error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 formBlock();
@@ -52,7 +69,7 @@ const formModal = () => {
 
   const { openModal } = openThanksModal();
 
-  orderForm.onsubmit = (event: Event) => {
+  orderForm.onsubmit = async (event: Event) => {
     event.preventDefault();
 
     const nameValue = (
@@ -79,9 +96,9 @@ const formModal = () => {
     }
 
     if (telValue.length < 12) {
-        toastr.error("Не правильный формат телефона!");
-        return;
-      }
+      toastr.error("Не правильный формат телефона!");
+      return;
+    }
 
     if (!confValue) {
       toastr.error(
@@ -90,9 +107,24 @@ const formModal = () => {
       return;
     }
 
-    (event.target as HTMLFormElement).reset();
-    openModal();
-    console.log(telValue, nameValue);
+    try {
+      const {
+        data: { error, success },
+      } = await axios.post<Response>(`${window.location.origin}/form.php`, {
+        tel: telValue,
+        name: nameValue,
+        formName: "orderForm",
+      });
+
+      if (success) {
+        (event.target as HTMLFormElement).reset();
+        openModal();
+      } else {
+        toastr.error(error);
+      }
+    } catch (error) {
+      console.error(error);
+    }
   };
 };
 formModal();
