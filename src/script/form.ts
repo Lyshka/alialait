@@ -42,22 +42,20 @@ const formBlock = () => {
       return;
     }
 
+    const formData = new FormData();
+    formData.append("tel", telValue);
+    formData.append("message", messageValue);
+    formData.append("formName", "formBlock");
+    formData.append("action", "mail_to");
+
     try {
       const {
         data: { error, success },
-      } = await axios.post<Response>(
-        `${window.location.origin}/form.php`,
-        {
-          tel: telValue,
-          message: messageValue,
-          formName: "formBlock",
+      } = await axios.post<Response>(`/wp-admin/admin-ajax.php`, formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        }
-      );
+      });
 
       if (success) {
         (event.target as HTMLFormElement).reset();
@@ -116,21 +114,19 @@ const formModal = () => {
     }
 
     try {
+      const formData = new FormData();
+      formData.append("tel", telValue);
+      formData.append("name", nameValue);
+      formData.append("formName", "orderForm");
+      formData.append("action", "mail_to");
+
       const {
         data: { error, success },
-      } = await axios.post<Response>(
-        `${window.location.origin}/form.php`,
-        {
-          tel: telValue,
-          name: nameValue,
-          formName: "orderForm",
+      } = await axios.post<Response>(`/wp-admin/admin-ajax.php`, formData, {
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        }
-      );
+      });
 
       if (success) {
         (event.target as HTMLFormElement).reset();
